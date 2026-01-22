@@ -11,6 +11,7 @@ export default function Home() {
       <ControlPanel />
       
       <div className="hero-section">
+        <div className="badge">{t('badge')}</div>
         <h1 className="main-title glow-text">{t('title')}</h1>
         <p className="subtitle">{t('subtitle')}</p>
       </div>
@@ -137,33 +138,39 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 评审标准和规则 */}
-        <section className="info-section">
-          <div className="info-grid">
-            <div className="info-card">
-              <h3>{t('evaluation')}</h3>
-              <ul>
-                <li>{t('eval1')}</li>
-                <li>{t('eval2')}</li>
-                <li>{t('eval3')}</li>
-                <li>{t('eval4')}</li>
-              </ul>
+        {/* 规则 */}
+        <section className="rules-section">
+          <h2 className="section-title">{t('rules')}</h2>
+          <div className="rules-box">
+            <ul className="rules-list">
+              <li>{t('rule1')}</li>
+              <li>{t('rule2')}</li>
+              <li>{t('rule3')}</li>
+            </ul>
+          </div>
+        </section>
+
+        {/* 报名区域 */}
+        <section className="registration-section">
+          <div className="registration-box">
+            <div className="qr-code-placeholder">
+              <div className="qr-code">
+                <div className="qr-grid">
+                  {Array.from({ length: 25 }).map((_, i) => (
+                    <div key={i} className="qr-cell"></div>
+                  ))}
+                </div>
+              </div>
             </div>
-            <div className="info-card">
-              <h3>{t('rules')}</h3>
-              <ul>
-                <li>{t('rule1')}</li>
-                <li>{t('rule2')}</li>
-                <li>{t('rule3')}</li>
-                <li>{t('rule4')}</li>
-              </ul>
-            </div>
+            <p className="scan-text">{t('scanToRegister')}</p>
+            <p className="qr-note">{t('qrNote')}</p>
           </div>
         </section>
       </div>
 
       <footer className="footer">
-        <p>© 2024 AI Prompt Engineering Competition</p>
+        <p className="deadline-text">{t('registrationDeadline')}{t('deadlinePlaceholder')}</p>
+        <p className="copyright">© 2024 PROMPT 造物挑战赛</p>
       </footer>
 
       <style jsx>{`
@@ -179,6 +186,20 @@ export default function Home() {
           text-align: center;
           padding: 80px 20px 60px;
           position: relative;
+        }
+
+        .badge {
+          display: inline-block;
+          padding: 8px 20px;
+          background: var(--bg-secondary);
+          border: 2px solid var(--accent-pink);
+          color: var(--accent-pink);
+          font-size: 0.9rem;
+          font-weight: bold;
+          letter-spacing: 2px;
+          margin-bottom: 20px;
+          box-shadow: var(--glow-pink);
+          text-transform: uppercase;
         }
 
         .main-title {
@@ -197,6 +218,7 @@ export default function Home() {
           font-size: 1.5rem;
           color: var(--text-secondary);
           letter-spacing: 2px;
+          font-weight: bold;
         }
 
         .content-section {
@@ -455,11 +477,129 @@ export default function Home() {
           color: var(--accent-cyan);
         }
 
+        .rules-section {
+          margin-top: 40px;
+        }
+
+        .rules-box {
+          background: var(--bg-secondary);
+          border: 2px solid var(--accent-cyan);
+          padding: 30px;
+          box-shadow: var(--glow-cyan);
+        }
+
+        .rules-list {
+          list-style: none;
+          padding-left: 0;
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
+        }
+
+        .rules-list li {
+          padding: 12px 0;
+          padding-left: 30px;
+          position: relative;
+          color: var(--text-primary);
+          font-size: 1.1rem;
+          line-height: 1.6;
+        }
+
+        .rules-list li::before {
+          content: '▶';
+          position: absolute;
+          left: 0;
+          color: var(--accent-cyan);
+          font-size: 0.8rem;
+        }
+
+        .registration-section {
+          margin-top: 60px;
+          display: flex;
+          justify-content: center;
+        }
+
+        .registration-box {
+          text-align: center;
+          padding: 40px;
+          background: var(--bg-secondary);
+          border: 2px solid var(--accent-pink);
+          box-shadow: var(--glow-pink);
+        }
+
+        .qr-code-placeholder {
+          margin-bottom: 20px;
+        }
+
+        .qr-code {
+          width: 200px;
+          height: 200px;
+          margin: 0 auto;
+          background: var(--bg-primary);
+          border: 3px solid var(--accent-cyan);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: var(--glow-cyan);
+          padding: 10px;
+        }
+
+        .qr-grid {
+          display: grid;
+          grid-template-columns: repeat(5, 1fr);
+          grid-template-rows: repeat(5, 1fr);
+          gap: 2px;
+          width: 100%;
+          height: 100%;
+        }
+
+        .qr-cell {
+          background: var(--accent-cyan);
+          opacity: 0.3;
+        }
+
+        .qr-cell:nth-child(1),
+        .qr-cell:nth-child(3),
+        .qr-cell:nth-child(5),
+        .qr-cell:nth-child(11),
+        .qr-cell:nth-child(15),
+        .qr-cell:nth-child(21),
+        .qr-cell:nth-child(23),
+        .qr-cell:nth-child(25) {
+          opacity: 1;
+        }
+
+        .qr-note {
+          font-size: 0.8rem;
+          color: var(--text-secondary);
+          margin-top: 10px;
+          font-style: italic;
+        }
+
+        .scan-text {
+          font-size: 1.3rem;
+          color: var(--accent-pink);
+          font-weight: bold;
+          text-transform: uppercase;
+          letter-spacing: 2px;
+        }
+
         .footer {
           text-align: center;
           padding: 40px 20px;
           margin-top: 60px;
           border-top: 2px solid var(--accent-cyan);
+          color: var(--text-secondary);
+        }
+
+        .deadline-text {
+          font-size: 1rem;
+          margin-bottom: 10px;
+          color: var(--text-primary);
+        }
+
+        .copyright {
+          font-size: 0.9rem;
           color: var(--text-secondary);
         }
 
