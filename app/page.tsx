@@ -16,60 +16,105 @@ export default function Home() {
       </div>
 
       <div className="content-section">
+        {/* 赛道一 */}
         <section className="track-section">
-          <h2 className="section-title">{t('track2Title')}</h2>
-          <p className="section-subtitle">{t('track2Subtitle')}</p>
+          <h2 className="section-title track1-title">{t('track1Title')}</h2>
+          <p className="section-subtitle">{t('track1Subtitle')}</p>
           
           <div className="requirements-box">
-            <h3 className="box-title">{t('requirements')}</h3>
-            <p className="box-content">{t('requirementsDesc')}</p>
+            <h3 className="box-title">{t('track1BasicReq')}</h3>
+            <p className="box-content">{t('track1BasicDesc')}</p>
           </div>
 
           <div className="requirements-box">
-            <h3 className="box-title">{t('additionalRequirements')}</h3>
+            <h3 className="box-title">{t('track1AdditionalReq')}</h3>
             <ul className="requirement-list">
               <li className="requirement-item">
                 <span className="req-number">01</span>
-                <span className="req-text">{t('req1')}</span>
+                <span className="req-text">{t('track1Req1')}</span>
               </li>
               <li className="requirement-item">
                 <span className="req-number">02</span>
-                <span className="req-text">{t('req2')}</span>
+                <span className="req-text">{t('track1Req2')}</span>
               </li>
               <li className="requirement-item">
                 <span className="req-number">03</span>
-                <span className="req-text">{t('req3')}</span>
+                <span className="req-text">{t('track1Req3')}</span>
               </li>
               <li className="requirement-item">
                 <span className="req-number">04</span>
-                <span className="req-text">{t('req4')}</span>
+                <span className="req-text">{t('track1Req4')}</span>
               </li>
             </ul>
           </div>
-        </section>
 
-        <section className="awards-section">
-          <h2 className="section-title">{t('awards')}</h2>
-          <div className="awards-grid">
-            <div className="award-card">
-              <div className="award-icon">🏆</div>
-              <h3>{t('award1')}</h3>
-            </div>
-            <div className="award-card">
-              <div className="award-icon">🎮</div>
-              <h3>{t('award2')}</h3>
-            </div>
-            <div className="award-card">
-              <div className="award-icon">💡</div>
-              <h3>{t('award3')}</h3>
-            </div>
-            <div className="award-card">
-              <div className="award-icon">🎬</div>
-              <h3>{t('award4')}</h3>
+          <div className="requirements-box">
+            <h3 className="box-title">{t('track1Submission')}</h3>
+            <p className="box-content">{t('track1SubmissionDesc')}</p>
+          </div>
+
+          <div className="awards-subsection">
+            <h3 className="subsection-title">{t('track1Awards')}</h3>
+            <div className="awards-grid">
+              <div className="award-card">
+                <div className="award-icon">🏆</div>
+                <h3>{t('track1Award1')}</h3>
+              </div>
+              <div className="award-card">
+                <div className="award-icon">🛡️</div>
+                <h3>{t('track1Award2')}</h3>
+              </div>
+              <div className="award-card">
+                <div className="award-icon">⚡</div>
+                <h3>{t('track1Award3')}</h3>
+              </div>
+              <div className="award-card">
+                <div className="award-icon">📊</div>
+                <h3>{t('track1Award4')}</h3>
+              </div>
             </div>
           </div>
         </section>
 
+        {/* 赛道二 */}
+        <section className="track-section">
+          <h2 className="section-title track2-title">{t('track2Title')}</h2>
+          <p className="section-subtitle">{t('track2Subtitle')}</p>
+          
+          <div className="requirements-box">
+            <h3 className="box-title">{t('track2BasicReq')}</h3>
+            <p className="box-content">{t('track2BasicDesc')}</p>
+          </div>
+
+          <div className="requirements-box">
+            <h3 className="box-title">{t('track2Submission')}</h3>
+            <p className="box-content">{t('track2SubmissionDesc')}</p>
+          </div>
+
+          <div className="awards-subsection">
+            <h3 className="subsection-title">{t('track2Awards')}</h3>
+            <div className="awards-grid">
+              <div className="award-card">
+                <div className="award-icon">🎭</div>
+                <h3>{t('track2Award1')}</h3>
+              </div>
+              <div className="award-card">
+                <div className="award-icon">🎮</div>
+                <h3>{t('track2Award2')}</h3>
+              </div>
+              <div className="award-card">
+                <div className="award-icon">💡</div>
+                <h3>{t('track2Award3')}</h3>
+              </div>
+              <div className="award-card">
+                <div className="award-icon">🎬</div>
+                <h3>{t('track2Award4')}</h3>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* 共同奖励 */}
         <section className="prizes-section">
           <h2 className="section-title">{t('prizes')}</h2>
           <div className="prizes-list">
@@ -92,12 +137,9 @@ export default function Home() {
           </div>
         </section>
 
+        {/* 评审标准和规则 */}
         <section className="info-section">
           <div className="info-grid">
-            <div className="info-card">
-              <h3>{t('submission')}</h3>
-              <p>{t('submissionDesc')}</p>
-            </div>
             <div className="info-card">
               <h3>{t('evaluation')}</h3>
               <ul>
@@ -160,8 +202,12 @@ export default function Home() {
         .content-section {
           display: flex;
           flex-direction: column;
-          gap: 60px;
+          gap: 80px;
           margin-top: 40px;
+        }
+
+        .track-section {
+          position: relative;
         }
 
         .section-title {
@@ -171,6 +217,16 @@ export default function Home() {
           letter-spacing: 3px;
           color: var(--accent-cyan);
           text-shadow: var(--glow-cyan);
+        }
+
+        .track1-title {
+          color: var(--accent-cyan);
+          text-shadow: var(--glow-cyan);
+        }
+
+        .track2-title {
+          color: var(--accent-pink);
+          text-shadow: var(--glow-pink);
         }
 
         .section-subtitle {
@@ -189,6 +245,15 @@ export default function Home() {
           overflow: hidden;
         }
 
+        .track-section:nth-child(2) .requirements-box {
+          border-color: var(--accent-cyan);
+        }
+
+        .track-section:nth-child(3) .requirements-box {
+          border-color: var(--accent-pink);
+          box-shadow: var(--glow-pink);
+        }
+
         .requirements-box::before {
           content: '';
           position: absolute;
@@ -198,6 +263,10 @@ export default function Home() {
           height: 100%;
           background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.1), transparent);
           animation: scan 3s infinite;
+        }
+
+        .track-section:nth-child(3) .requirements-box::before {
+          background: linear-gradient(90deg, transparent, rgba(255, 0, 255, 0.1), transparent);
         }
 
         .box-title {
@@ -249,6 +318,18 @@ export default function Home() {
           color: var(--text-primary);
         }
 
+        .awards-subsection {
+          margin-top: 40px;
+        }
+
+        .subsection-title {
+          font-size: 1.8rem;
+          color: var(--accent-purple);
+          margin-bottom: 25px;
+          text-transform: uppercase;
+          letter-spacing: 2px;
+        }
+
         .awards-grid {
           display: grid;
           grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -290,10 +371,15 @@ export default function Home() {
         }
 
         .award-card h3 {
-          font-size: 1.3rem;
+          font-size: 1.2rem;
           color: var(--text-primary);
           text-transform: uppercase;
           letter-spacing: 1px;
+          line-height: 1.4;
+        }
+
+        .prizes-section {
+          margin-top: 40px;
         }
 
         .prizes-list {
