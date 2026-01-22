@@ -103,10 +103,23 @@ body::after {
 /* Animations */
 @keyframes glow {
   0%, 100% {
-    text-shadow: 0 0 10px var(--accent-cyan), 0 0 20px var(--accent-cyan), 0 0 30px var(--accent-cyan);
+    text-shadow: 0 0 5px var(--accent-cyan), 0 0 10px var(--accent-cyan), 0 0 15px var(--accent-cyan);
+    filter: brightness(1);
+    opacity: 1;
   }
   50% {
-    text-shadow: 0 0 20px var(--accent-pink), 0 0 30px var(--accent-pink), 0 0 40px var(--accent-pink);
+    text-shadow: 0 0 8px var(--accent-pink), 0 0 15px var(--accent-pink), 0 0 20px var(--accent-pink);
+    filter: brightness(1.05);
+    opacity: 0.95;
+  }
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
   }
 }
 

@@ -11,7 +11,6 @@ export default function Home() {
       <ControlPanel />
       
       <div className="hero-section">
-        <div className="badge">{t('badge')}</div>
         <h1 className="main-title glow-text">{t('title')}</h1>
         <p className="subtitle">{t('subtitle')}</p>
       </div>
@@ -142,6 +141,7 @@ export default function Home() {
         <section className="rules-section">
           <h2 className="section-title">{t('rules')}</h2>
           <div className="rules-box">
+            <div className="badge-info">{t('badge')}</div>
             <ul className="rules-list">
               <li>{t('rule1')}</li>
               <li>{t('rule2')}</li>
@@ -188,16 +188,16 @@ export default function Home() {
           position: relative;
         }
 
-        .badge {
+        .badge-info {
           display: inline-block;
-          padding: 8px 20px;
+          padding: 10px 25px;
           background: var(--bg-secondary);
           border: 2px solid var(--accent-pink);
           color: var(--accent-pink);
-          font-size: 0.9rem;
+          font-size: 1rem;
           font-weight: bold;
           letter-spacing: 2px;
-          margin-bottom: 20px;
+          margin-bottom: 25px;
           box-shadow: var(--glow-pink);
           text-transform: uppercase;
         }
@@ -212,6 +212,9 @@ export default function Home() {
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
+          background-size: 200% 200%;
+          animation: gradient-shift 3s ease infinite;
+          position: relative;
         }
 
         .subtitle {
