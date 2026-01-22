@@ -132,7 +132,10 @@ export default function Home() {
             </div>
             <div className="prize-item">
               <span className="prize-icon">💰</span>
-              <span>{t('prize4')}</span>
+              <div className="prize-content">
+                <span>{t('prize4')}</span>
+                <span className="roadshow-note">{t('roadshowNote')}</span>
+              </div>
             </div>
           </div>
         </section>
@@ -155,22 +158,17 @@ export default function Home() {
           <div className="registration-box">
             <div className="qr-code-placeholder">
               <div className="qr-code">
-                <div className="qr-grid">
-                  {Array.from({ length: 25 }).map((_, i) => (
-                    <div key={i} className="qr-cell"></div>
-                  ))}
-                </div>
+                <img src="/qr-code.jpg" alt="Registration QR Code" className="qr-image" />
               </div>
             </div>
             <p className="scan-text">{t('scanToRegister')}</p>
-            <p className="qr-note">{t('qrNote')}</p>
           </div>
         </section>
       </div>
 
       <footer className="footer">
         <p className="deadline-text">{t('registrationDeadline')}{t('deadlinePlaceholder')}</p>
-        <p className="copyright">© 2024 PROMPT 造物挑战赛</p>
+        <p className="copyright">© 2026 PROMPT 造物挑战赛</p>
       </footer>
 
       <style jsx>{`
@@ -435,6 +433,19 @@ export default function Home() {
           font-size: 2rem;
         }
 
+        .prize-content {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+        }
+
+        .roadshow-note {
+          font-size: 0.9rem;
+          color: var(--accent-pink);
+          font-style: italic;
+          opacity: 0.9;
+        }
+
         .info-grid {
           display: grid;
           grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -545,38 +556,13 @@ export default function Home() {
           justify-content: center;
           box-shadow: var(--glow-cyan);
           padding: 10px;
+          overflow: hidden;
         }
 
-        .qr-grid {
-          display: grid;
-          grid-template-columns: repeat(5, 1fr);
-          grid-template-rows: repeat(5, 1fr);
-          gap: 2px;
+        .qr-image {
           width: 100%;
           height: 100%;
-        }
-
-        .qr-cell {
-          background: var(--accent-cyan);
-          opacity: 0.3;
-        }
-
-        .qr-cell:nth-child(1),
-        .qr-cell:nth-child(3),
-        .qr-cell:nth-child(5),
-        .qr-cell:nth-child(11),
-        .qr-cell:nth-child(15),
-        .qr-cell:nth-child(21),
-        .qr-cell:nth-child(23),
-        .qr-cell:nth-child(25) {
-          opacity: 1;
-        }
-
-        .qr-note {
-          font-size: 0.8rem;
-          color: var(--text-secondary);
-          margin-top: 10px;
-          font-style: italic;
+          object-fit: contain;
         }
 
         .scan-text {
